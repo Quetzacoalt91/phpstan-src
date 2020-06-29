@@ -30,6 +30,11 @@ class GithubErrorFormatter implements ErrorFormatter
 	{
 		$this->tableErrorformatter->formatErrors($analysisResult, $output);
 
+		if (1) {
+			// Error on the line before
+			$analysisResult->getFileSpecificErrors();
+		}
+
 		foreach ($analysisResult->getFileSpecificErrors() as $fileSpecificError) {
 			$metas = [
 				'file' => $this->relativePathHelper->getRelativePath($fileSpecificError->getFile()),
